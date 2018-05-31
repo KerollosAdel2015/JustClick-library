@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>simple-array</title>
+
+    <!-- you need to add scripts in same order -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/JustClick-Templete.js"></script>
+
+    <!-- object is stored here -->
+    <script src="src/Objects.js"></script>
+
+</head>
+<body>
+    <input type="text" onblur="search()" id="sarchCtr" />
+    <br />
+    <div id="simple-array-template-container"></div>
+
+    <script id="simple-array-template" type="text/just-click-template" jc-date-formate="DD-MMM-YYYY" jc-search-key="sarchCtr">
+        Current Date : {{@@date}}
+        <table style="width:100%">
+            <tr>
+                <td>#</td>
+                <td>Car Name</td>
+                <td>Car Color</td>
+                <td>Is Damaged</td>
+                <td>Wheels</td>
+            </tr>
+            {{#each}}
+            <tr>
+                <td>{{@@seq}}</td>
+                <td>{{name || filter}}</td>
+                <td>{{color}}</td>
+                <td>{{isDamaged}}</td>
+                <td>{{wheels}}</td>
+            </tr>
+            {{#end-each}}
+        </table>
+    </script>
+
+    <script>
+
+        search();
+
+        function search() {
+            justclick.Complie("simple-array-template", "simple-array-template-container", cars);
+        }
+
+        
+    </script>
+
+</body>
+</html>

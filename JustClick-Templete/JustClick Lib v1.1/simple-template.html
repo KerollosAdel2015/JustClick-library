@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>simple-template-container</title> 
+
+    <!-- you need to add scripts in same order -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/JustClick-Templete.js"></script>
+
+    <!-- object is stored here -->
+    <script src="src/Objects.js"></script>
+
+</head>
+<body>
+    <div id="simple-template-container-1"></div>
+    <br />
+    <div id="simple-template-container-2"></div>
+    <br />
+    <div id="simple-template-container-3"></div>
+     
+    <!-- very simple template just simple object -->
+    <script id="simple-templete" type="text/just-click-template">
+        Task is : {{title}} & due date by : {{due_by}}
+        <br />
+        Task owner name : {{owner}}
+        <br />
+        Current Date : {{@@date}}
+    </script>
+
+    <script > 
+        justclick.Complie("simple-templete", "simple-template-container-1", task1);
+        justclick.Complie("simple-templete", "simple-template-container-2", task2);
+        justclick.Complie("simple-templete", "simple-template-container-3", task3);
+    </script>
+
+</body>
+</html>

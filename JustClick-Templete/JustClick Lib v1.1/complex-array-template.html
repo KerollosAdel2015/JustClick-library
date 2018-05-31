@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>complex-array-template</title>
+
+    <!-- you need to add scripts in same order -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/JustClick-Templete.js"></script>
+
+    <!-- object is stored here -->
+    <script src="src/Objects.js"></script>
+
+    <style>
+        .img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="simple-array-template-container"></div>
+
+    <script id="complex-array-template" type="text/just-click-template" jc-date-formate="MM-DD-YYYY">
+        Current Month : {{@@month-name}}
+        <br />
+        <a href="{{@@url}}">Reload this page</a>
+        <br />
+        <br />
+        Create By : {{CreatorName}}
+        <br />
+        Libarayr Version : {{@@version}} 
+        <br />
+        <hr />
+        <table>
+            <tr>
+                <td>Index</td>
+                <td>Name</td>
+                <td>Image 1</td>
+                <td>Image 1</td>
+            </tr>
+            {{#each animals}}
+            <tr>
+                <td>{{@@index}}</td>
+                <td>{{name}}</td>
+                <td><img src="{{image1}}" class="img" /></td>
+                <td><img src="{{image2}}" class="img" /></td>
+            </tr>
+            {{#end-each}}
+        </table>
+    </script>
+
+    <script >
+        justclick.Complie("complex-array-template", "simple-array-template-container", animals_data);
+    </script>
+
+</body>
+</html>
